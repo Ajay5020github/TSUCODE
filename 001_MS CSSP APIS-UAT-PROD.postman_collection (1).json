@@ -1,0 +1,705 @@
+{
+	"info": {
+		"_postman_id": "04af56a8-d2e4-4583-a01d-8b202b4083b6",
+		"name": "001_MS CSSP APIS-UAT-PROD",
+		"description": "MS CSSP APIs exposed to State for the API integration. The  \nservice consumer Gainwell/State will use the element in  \nthe section of the SOAP header to provide the X.509 client  \ncertificate information. The HPTS uses this X.509 certificate to validate and  \nauthenticate the service consumer using the WS Security X.509 Certificate token  \nprofile.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16163879"
+	},
+	"item": [
+		{
+			"name": "PROVIDER-APIS-Gainwell to CSSP-UAT-PROD",
+			"item": [
+				{
+					"name": "UAT-PROD",
+					"item": [
+						{
+							"name": "MS-provider-CWPGetAccountInfo",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"strictSSL": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version='1.0' encoding='utf-8'?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:a=\"http://www.w3.org/2005/08/addressing\" xmlns:dsig=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:u=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" xmlns:mime=\"http://www.w3.org/2005/05/xmlmime\" xmlns:xenc=\"http://www.w3.org/2001/04/xmlenc#\" xmlns:o=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n    <soapenv:Header>\r\n        <a:Action>CWPGetAccountInfo</a:Action>\r\n        <a:MessageID>66730106-66a0-435a-85ba-adfc6ac88555/a:MessageID>\r\n        <o:Security>\r\n            <u:Timestamp>\r\n                <u:Created>2023-07-05T13:40:14Z</u:Created>\r\n                <u:Expires>2023-07-05T13:45:14Z</u:Expires>\r\n            </u:Timestamp>\r\n            <Assertion ID=\"_b691325d-d6bc-492b-81e1-321cd55cf976\" IssueInstant=\"2023-07-05T13:40:14Z\" Version=\"2.0\" xmlns=\"urn:oasis:names:tc:SAML:2.0:assertion\">\r\n                <Issuer Format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName\">CN=Sectigo RSA Organization Validation Secure Server CA,O=Sectigo Limited,L=Salford,ST=Greater Manchester,C=GB</Issuer>\r\n                <dsig:Signature>\r\n                    <dsig:SignedInfo>\r\n                        <dsig:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/>\r\n                        <dsig:SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\"/>\r\n                        <dsig:Reference URI=\"\">\r\n                            <dsig:Transforms>\r\n                                <dsig:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/>\r\n                            </dsig:Transforms>\r\n                            <dsig:DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\"/>\r\n                            <dsig:DigestValue>2jmj7l5rSw0yVb/vlWAYkK/YBwk=</dsig:DigestValue>\r\n                        </dsig:Reference>\r\n                    </dsig:SignedInfo>\r\n                    <dsig:SignatureValue>Q0GdufFOrLnpaXJirRDiMKVuwICP8AOhdJdQHjVc0pJWPcHO5SjANS0TPZsRvxQTjySNhO3PzAv5qVHyTUAPKYQa1QHxcCD0OTc43PMnzbwNXNsn54e2kg2caK6E4DR4sVxqJixw0+SkVxqfClHSpdWWHfU+ulyJfloqmQDzmxp2N3dBcI8d8iuYH4cmKf+5fDcJUl7jzAQUbAD3O7p2Xdp1/idzCV8DvFDRbsn/VWyz2EZUAY3MPFrp2w7eZX2xGVf3tR4HjGBo8+x6wRhr9asP5nInU5spiFZrX+wYHIbrAasGDHjGXosdW3cYUYFHbHQnjWaXAVUlmcCW6fBMBQ==</dsig:SignatureValue>\r\n                    <dsig:KeyInfo>\r\n                        <dsig:X509Data>\r\n                            <dsig:X509SubjectName>CN=p2cwptest.msmeds.org,O=Conduent Business Services\\, LLC,ST=New Jersey,C=US</dsig:X509SubjectName>\r\n                            <dsig:X509Certificate>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</dsig:X509Certificate>\r\n                        </dsig:X509Data>\r\n                    </dsig:KeyInfo>\r\n                </dsig:Signature>\r\n                <AttributeStatement>\r\n                    <Attribute Name=\"urn:oasis:names:tc:xspa:1.0:subject:organization-id\">\r\n                        <AttributeValue>urn:oid:0DOM-001A-001A-0001</AttributeValue>\r\n                    </Attribute>\r\n                </AttributeStatement>\r\n            </Assertion>\r\n        </o:Security>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <ns2:GetAccountInfoRequest xmlns:ns2=\"http://hhstp.ms.gov/hhstp/GetAccountInfo\" xmlns=\"http://hhstp.ms.gov/hhstp/hhstp-core/1.0\">\r\n            <ns2:TXNHeader>\r\n                <ServiceID>CWPGetAccountInfo</ServiceID>\r\n                <ServiceDescription>CWPGetAccountInfo</ServiceDescription>\r\n                <ServiceTimeStamp>2023-07-05T18:40:10Z</ServiceTimeStamp>\r\n                <Sender>Medicaid</Sender>\r\n                <Receiver>CWP</Receiver>\r\n                <IPAddress>10.221.90.57</IPAddress>\r\n                <TransactionID>66730106-66a0-435a-85ba-adfc6ac88555</TransactionID>\r\n            </ns2:TXNHeader>\r\n            <ns2:AcctHolderName/>\r\n            <CWPAcctUserName>srinivaltus+10@gmail.com</CWPAcctUserName>\r\n            <ns2:ProgramIdentificationInfo>\r\n                <ProgramIdentificationCode>Medicaid</ProgramIdentificationCode>\r\n                <ProgramCategoryDesc>Medicaid</ProgramCategoryDesc>\r\n            </ns2:ProgramIdentificationInfo>\r\n        </ns2:GetAccountInfoRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{externalBaseUrl}}/external/provider",
+									"host": [
+										"{{externalBaseUrl}}"
+									],
+									"path": [
+										"external",
+										"provider"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MS-Provider-CWPManualAuthentication",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version='1.0' encoding='utf-8'?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:a=\"http://www.w3.org/2005/08/addressing\" xmlns:dsig=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:u=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" xmlns:mime=\"http://www.w3.org/2005/05/xmlmime\" xmlns:xenc=\"http://www.w3.org/2001/04/xmlenc#\" xmlns:o=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n    <soapenv:Header>\r\n        <a:Action>CWPManualAuthentication</a:Action>\r\n        <a:MessageID>999f9a94-abc7-4e93-ba83-5771424e4fb9</a:MessageID>\r\n        <o:Security>\r\n            <u:Timestamp>\r\n                <u:Created>2023-07-05T13:54:48Z</u:Created>\r\n                <u:Expires>2023-07-05T13:59:48Z</u:Expires>\r\n            </u:Timestamp>\r\n            <Assertion ID=\"_cecb4b38-8cc3-4acf-89cb-b12f772eede6\" IssueInstant=\"2023-07-05T13:54:48Z\" Version=\"2.0\" xmlns=\"urn:oasis:names:tc:SAML:2.0:assertion\">\r\n                <Issuer Format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName\">CN=Sectigo RSA Organization Validation Secure Server CA,O=Sectigo Limited,L=Salford,ST=Greater Manchester,C=GB</Issuer>\r\n                <dsig:Signature>\r\n                    <dsig:SignedInfo>\r\n                        <dsig:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/>\r\n                        <dsig:SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\"/>\r\n                        <dsig:Reference URI=\"\">\r\n                            <dsig:Transforms>\r\n                                <dsig:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/>\r\n                            </dsig:Transforms>\r\n                            <dsig:DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\"/>\r\n                            <dsig:DigestValue>2jmj7l5rSw0yVb/vlWAYkK/YBwk=</dsig:DigestValue>\r\n                        </dsig:Reference>\r\n                    </dsig:SignedInfo>\r\n                    <dsig:SignatureValue>Q0GdufFOrLnpaXJirRDiMKVuwICP8AOhdJdQHjVc0pJWPcHO5SjANS0TPZsRvxQTjySNhO3PzAv5qVHyTUAPKYQa1QHxcCD0OTc43PMnzbwNXNsn54e2kg2caK6E4DR4sVxqJixw0+SkVxqfClHSpdWWHfU+ulyJfloqmQDzmxp2N3dBcI8d8iuYH4cmKf+5fDcJUl7jzAQUbAD3O7p2Xdp1/idzCV8DvFDRbsn/VWyz2EZUAY3MPFrp2w7eZX2xGVf3tR4HjGBo8+x6wRhr9asP5nInU5spiFZrX+wYHIbrAasGDHjGXosdW3cYUYFHbHQnjWaXAVUlmcCW6fBMBQ==</dsig:SignatureValue>\r\n                    <dsig:KeyInfo>\r\n                        <dsig:X509Data>\r\n                            <dsig:X509SubjectName>CN=p2cwptest.msmeds.org,O=Conduent Business Services\\, LLC,ST=New Jersey,C=US</dsig:X509SubjectName>\r\n                            <dsig:X509Certificate>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</dsig:X509Certificate>\r\n                        </dsig:X509Data>\r\n                    </dsig:KeyInfo>\r\n                </dsig:Signature>\r\n                <AttributeStatement>\r\n                    <Attribute Name=\"urn:oasis:names:tc:xspa:1.0:subject:organization-id\">\r\n                        <AttributeValue>urn:oid:0DOM-001A-001A-0003</AttributeValue>\r\n                    </Attribute>\r\n                </AttributeStatement>\r\n            </Assertion>\r\n        </o:Security>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <ns2:ManualAuthenticationRequest xmlns:ns2=\"http://hhstp.ms.gov/hhstp/ManualAuthentication\" xmlns=\"http://hhstp.ms.gov/hhstp/hhstp-core/1.0\">\r\n            <ns2:TXNHeader>\r\n                <ServiceID>CWPManualAuthentication</ServiceID>\r\n                <ServiceDescription>CWPManualAuthentication</ServiceDescription>\r\n                <ServiceTimeStamp>2023-07-05T18:54:44Z</ServiceTimeStamp>\r\n                <Sender>Medicaid</Sender>\r\n                <Receiver>CWP</Receiver>\r\n                <TransactionID>999f9a94-abc7-4e93-ba83-5771424e4fb9</TransactionID>\r\n            </ns2:TXNHeader>\r\n            <ns2:KeyInfoType>\r\n                <KeyType>CWPAcctID</KeyType>\r\n                <KeyIdentifier>2807</KeyIdentifier>\r\n            </ns2:KeyInfoType>\r\n            <ns2:ProgramIdentificationInfo>\r\n                <ProgramIdentificationCode>Medicaid</ProgramIdentificationCode>\r\n                <ProgramCategoryDesc>Medicaid</ProgramCategoryDesc>\r\n            </ns2:ProgramIdentificationInfo>\r\n            <AuthenticationInd>true</AuthenticationInd>\r\n            <AuditTimeStamp>2023-07-05T18:54:44Z</AuditTimeStamp>\r\n        </ns2:ManualAuthenticationRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{externalBaseUrl}}/external/provider",
+									"host": [
+										"{{externalBaseUrl}}"
+									],
+									"path": [
+										"external",
+										"provider"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MS-Provider-CWPMessageToCWP",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version='1.0' encoding='utf-8'?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:a=\"http://www.w3.org/2005/08/addressing\" xmlns:dsig=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:u=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" xmlns:mime=\"http://www.w3.org/2005/05/xmlmime\" xmlns:xenc=\"http://www.w3.org/2001/04/xmlenc#\" xmlns:o=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n    <soapenv:Header>\r\n        <a:Action>CWPMessageToCWP</a:Action>\r\n        <a:MessageID>693697f4-cac3-420b-9686-09f188911b68</a:MessageID>\r\n        <o:Security>\r\n            <u:Timestamp>\r\n                <u:Created>2023-07-05T09:07:59Z</u:Created>\r\n                <u:Expires>2023-07-05T09:12:59Z</u:Expires>\r\n            </u:Timestamp>\r\n            <Assertion ID=\"_d2379c6a-9098-424f-aff8-e8e3f3f4f94a\" IssueInstant=\"2023-07-05T09:07:59Z\" Version=\"2.0\" xmlns=\"urn:oasis:names:tc:SAML:2.0:assertion\">\r\n                <Issuer Format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName\">CN=Sectigo RSA Organization Validation Secure Server CA,O=Sectigo Limited,L=Salford,ST=Greater Manchester,C=GB</Issuer>\r\n                <dsig:Signature>\r\n                    <dsig:SignedInfo>\r\n                        <dsig:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/>\r\n                        <dsig:SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\"/>\r\n                        <dsig:Reference URI=\"\">\r\n                            <dsig:Transforms>\r\n                                <dsig:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/>\r\n                            </dsig:Transforms>\r\n                            <dsig:DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\"/>\r\n                            <dsig:DigestValue>2jmj7l5rSw0yVb/vlWAYkK/YBwk=</dsig:DigestValue>\r\n                        </dsig:Reference>\r\n                    </dsig:SignedInfo>\r\n                    <dsig:SignatureValue>Q0GdufFOrLnpaXJirRDiMKVuwICP8AOhdJdQHjVc0pJWPcHO5SjANS0TPZsRvxQTjySNhO3PzAv5qVHyTUAPKYQa1QHxcCD0OTc43PMnzbwNXNsn54e2kg2caK6E4DR4sVxqJixw0+SkVxqfClHSpdWWHfU+ulyJfloqmQDzmxp2N3dBcI8d8iuYH4cmKf+5fDcJUl7jzAQUbAD3O7p2Xdp1/idzCV8DvFDRbsn/VWyz2EZUAY3MPFrp2w7eZX2xGVf3tR4HjGBo8+x6wRhr9asP5nInU5spiFZrX+wYHIbrAasGDHjGXosdW3cYUYFHbHQnjWaXAVUlmcCW6fBMBQ==</dsig:SignatureValue>\r\n                    <dsig:KeyInfo>\r\n                        <dsig:X509Data>\r\n                            <dsig:X509SubjectName>CN=p2cwptest.msmeds.org,O=Conduent Business Services\\, LLC,ST=New Jersey,C=US</dsig:X509SubjectName>\r\n                            <dsig:X509Certificate>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</dsig:X509Certificate>\r\n                        </dsig:X509Data>\r\n                    </dsig:KeyInfo>\r\n                </dsig:Signature>\r\n                <AttributeStatement>\r\n                    <Attribute Name=\"urn:oasis:names:tc:xspa:1.0:subject:organization-id\">\r\n                        <AttributeValue>urn:oid:0DOM-001A-001A-0003</AttributeValue>\r\n                    </Attribute>\r\n                </AttributeStatement>\r\n            </Assertion>\r\n        </o:Security>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <ns2:MessageToCWPRequest xmlns:ns2=\"http://hhstp.ms.gov/hhstp/MessageToCWP\" xmlns=\"http://hhstp.ms.gov/hhstp/hhstp-core/1.0\">\r\n            <ns2:TXNHeader>\r\n                <ServiceID>CWPMessageToCWP</ServiceID>\r\n                <ServiceDescription>Message to CWP</ServiceDescription>\r\n                <ServiceTimeStamp>2023-07-05T14:07:55Z</ServiceTimeStamp>\r\n                <Sender>Medicaid</Sender>\r\n                <Receiver>CWP</Receiver>\r\n                <IPAddress>10.221.90.57</IPAddress>\r\n                <TransactionID>693697f4-cac3-420b-9686-09f188911b68</TransactionID>\r\n            </ns2:TXNHeader>\r\n            <ns2:KeyInfoType>\r\n                <KeyType>NewMEDSCaseID</KeyType>\r\n                <KeyIdentifier>602514684</KeyIdentifier>\r\n            </ns2:KeyInfoType>\r\n            <ns2:KeyInfoType>\r\n                <KeyType>CWPAcctID</KeyType>\r\n                <KeyIdentifier>610</KeyIdentifier>\r\n            </ns2:KeyInfoType>\r\n            <ns2:ProgramIdentificationInfo>\r\n                <ProgramIdentificationCode>Medicaid</ProgramIdentificationCode>\r\n                <ProgramCategoryDesc>Medicaid</ProgramCategoryDesc>\r\n            </ns2:ProgramIdentificationInfo>\r\n             <ns2:MessageToCWP>\r\n                <MessageID>1</MessageID>\r\n                <MessageCategoryType>NoticeDelivery</MessageCategoryType>\r\n                <MessageFrom>Medicaid</MessageFrom>\r\n                <MessageTo>Barbara Fields</MessageTo>\r\n                <MessageTimeStamp>2023-02-28T23:37:54Z</MessageTimeStamp>\r\n                <MessageDocumentIndex>!nrtdms:0:!session:WSDEVDMS2:!database:BENE:!document:325851,1:</MessageDocumentIndex>\r\n                <CommPrefDetails>\r\n                    <ElectronicCommunicationsInd>true</ElectronicCommunicationsInd>\r\n                    <CommunicationPreferenceType>Both Email and Text Message</CommunicationPreferenceType>\r\n                    <CommContactNumberInfo>\r\n                        <PhoneNumber>6175059508</PhoneNumber>\r\n                    </CommContactNumberInfo>\r\n                    <EmailID>sathish.jeyam@gmail.com</EmailID>\r\n                </CommPrefDetails>\r\n            </ns2:MessageToCWP>\r\n        </ns2:MessageToCWPRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{externalBaseUrl}}/external/provider",
+									"host": [
+										"{{externalBaseUrl}}"
+									],
+									"path": [
+										"external",
+										"provider"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MS-Listener-GuaranteedAcknowledgement",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "TransactionID",
+										"value": "230612-UAT-CSSP-M09-788aff64-3fb1-4f9a-a747-4a0b5d4c6072",
+										"type": "text"
+									},
+									{
+										"key": "oxiInternalTransactionID",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "oxiStatus",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "spErrorCode",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "oxiErrorCode",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "spErrorDescription",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "oxiErrorDescription",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\">\r\n    <soap:Header>\r\n        <a:Action xmlns:a=\"http://www.w3.org/2005/08/addressing\">ChangeInCircumstancesResponse</a:Action>\r\n        <a:RelatesTo xmlns:a=\"http://www.w3.org/2005/08/addressing\">230711-PROD-CSSP-D01-ed5bac04-c22a-4796-8a91-77c2525e85a0</a:RelatesTo>\r\n    </soap:Header>\r\n    <soap:Body>\r\n        <ns2:ChangeInCircumstancesResponse xmlns=\"http://hhstp.ms.gov/hhstp/hhstp-core/1.0\" xmlns:ns2=\"http://hhstp.ms.gov/hhstp/UpdatechangeInCircumstances\" xmlns:ns3=\"http://www.w3.org/2003/05/soap-envelope\">\r\n            <ResponseCode>200</ResponseCode>\r\n            <ResponseDescription>UpdateChangeInCircumstance returned Successfully</ResponseDescription>\r\n            <ResponseTimeStamp>2023-06-12T15:47:58.6110000-05</ResponseTimeStamp>\r\n        </ns2:ChangeInCircumstancesResponse>\r\n    </soap:Body>\r\n</soap:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{externalBaseUrl}}/external/listener/GuaranteedAcknowledgement",
+									"host": [
+										"{{externalBaseUrl}}"
+									],
+									"path": [
+										"external",
+										"listener",
+										"GuaranteedAcknowledgement"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SIT",
+					"item": [
+						{
+							"name": "MS-Provider-CWPMessageToCWP_SIT",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:a=\"http://www.w3.org/2005/08/addressing\" xmlns:dsig=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:mime=\"http://www.w3.org/2005/05/xmlmime\" xmlns:o=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:u=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" xmlns:xenc=\"http://www.w3.org/2001/04/xmlenc#\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n    <soapenv:Header>\r\n        <a:Action>CWPMessageToCWP</a:Action>\r\n        <a:MessageID>bde72588-2024-45c9-9c7a-6ddeb5240206</a:MessageID>\r\n        <o:Security>\r\n            <u:Timestamp>\r\n                <u:Created>2023-02-28T17:37:56Z</u:Created>\r\n                <u:Expires>2023-02-28T17:42:56Z</u:Expires>\r\n            </u:Timestamp>\r\n            <Assertion xmlns=\"urn:oasis:names:tc:SAML:2.0:assertion\" ID=\"_1905625a-d8d2-42dc-b1e3-e521dce49678\" IssueInstant=\"2023-02-28T17:37:56Z\" Version=\"2.0\">\r\n                <Issuer Format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName\">CN=Sectigo RSA Organization Validation Secure Server CA,O=Sectigo Limited,L=Salford,ST=Greater Manchester,C=GB</Issuer>\r\n                <dsig:Signature>\r\n                    <dsig:SignedInfo>\r\n                        <dsig:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\" />\r\n                        <dsig:SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\" />\r\n                        <dsig:Reference URI=\"\">\r\n                            <dsig:Transforms>\r\n                                <dsig:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\" />\r\n                            </dsig:Transforms>\r\n                            <dsig:DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\" />\r\n                            <dsig:DigestValue>2jmj7l5rSw0yVb/vlWAYkK/YBwk=</dsig:DigestValue>\r\n                        </dsig:Reference>\r\n                    </dsig:SignedInfo>\r\n                    <dsig:SignatureValue>mho92AHAQw7vQkk/MpQSGKmUdEBy4mp5Fiu+p1BYOtOXqBQJ6LXWpvXClyMPCaOFkZDNDHToxKRAofOCJiLhXtbA2YWLsZORVDVR3+1739GID+yvUhB9W7G6Ng1Dwxk2GFXvtNr8MdcciZquhtQR3Qznm6t6pvuPxMwf6fBVP4G9XwGmoIBCKQdYWMyuCVbfRWKfoc3vr7VpikS+ZEUdYuyx4ofGuLrYWfqVO9oCxK0xvmBVMHqp+/uxeC5hpY7KLxnM0Qi+g66CfYlM58KLAirE8aUT5zL04hlDXE/gRwlZ1HO/JTOrRvl6FCmX4BpFfeIqxBKihCvzG76n/dB8dQ==</dsig:SignatureValue>\r\n                    <dsig:KeyInfo>\r\n                        <dsig:X509Data>\r\n                            <dsig:X509SubjectName>CN=p2cwptest.msmeds.org,O=Conduent Business Services\\, LLC,ST=New Jersey,C=US</dsig:X509SubjectName>\r\n                            <dsig:X509Certificate>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</dsig:X509Certificate>\r\n                        </dsig:X509Data>\r\n                    </dsig:KeyInfo>\r\n                </dsig:Signature>\r\n                <AttributeStatement>\r\n                    <Attribute Name=\"urn:oasis:names:tc:xspa:1.0:subject:organization-id\">\r\n                        <AttributeValue>urn:oid:0SSP-001A-001A-0003</AttributeValue>\r\n                    </Attribute>\r\n                </AttributeStatement>\r\n            </Assertion>\r\n        </o:Security>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <ns2:MessageToCWPRequest xmlns:ns2=\"http://hhstp.ms.gov/hhstp/MessageToCWP\" xmlns=\"http://hhstp.ms.gov/hhstp/hhstp-core/1.0\">\r\n            <ns2:TXNHeader>\r\n                <ServiceID>CWPMessageToCWP</ServiceID>\r\n                <ServiceDescription>Message to CWP</ServiceDescription>\r\n                <ServiceTimeStamp>2023-02-28T23:37:54Z</ServiceTimeStamp>\r\n                <Sender>Medicaid</Sender>\r\n                <Receiver>CWP</Receiver>\r\n                <IPAddress>10.221.90.57</IPAddress>\r\n                <TransactionID>bde72588-2024-45c9-9c7a-6ddeb5240206</TransactionID>\r\n            </ns2:TXNHeader>\r\n            <ns2:KeyInfoType>\r\n                <KeyType>NewMEDSCaseID</KeyType>\r\n                <KeyIdentifier>602514684</KeyIdentifier>\r\n            </ns2:KeyInfoType>\r\n            <ns2:KeyInfoType>\r\n                <KeyType>CWPAcctID</KeyType>\r\n                <KeyIdentifier>36925</KeyIdentifier>\r\n            </ns2:KeyInfoType>\r\n            <ns2:ProgramIdentificationInfo>\r\n                <ProgramIdentificationCode>Medicaid</ProgramIdentificationCode>\r\n                <ProgramCategoryDesc>Medicaid</ProgramCategoryDesc>\r\n            </ns2:ProgramIdentificationInfo>\r\n            <ns2:MessageToCWP>\r\n                <MessageID>1</MessageID>\r\n                <MessageCategoryType>NoticeDelivery</MessageCategoryType>\r\n                <MessageFrom>Medicaid</MessageFrom>\r\n                <MessageTo>Barbara Fields</MessageTo>\r\n                <MessageTimeStamp>2023-02-28T23:37:54Z</MessageTimeStamp>\r\n                <MessageDocumentIndex>1232024:TEST0931</MessageDocumentIndex>\r\n                <CommPrefDetails>\r\n                    <ElectronicCommunicationsInd>true</ElectronicCommunicationsInd>\r\n                    <CommunicationPreferenceType>Both Email and Text Message</CommunicationPreferenceType>\r\n                    <CommContactNumberInfo>\r\n                        <PhoneNumber>6175059508</PhoneNumber>\r\n                    </CommContactNumberInfo>\r\n                    <EmailID>sathish.jeyamtest003@gmail.com</EmailID>\r\n                </CommPrefDetails>\r\n            </ns2:MessageToCWP>\r\n        </ns2:MessageToCWPRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.test.cssp.portal.conduent.com:9443/external/provider",
+									"protocol": "https",
+									"host": [
+										"api",
+										"test",
+										"cssp",
+										"portal",
+										"conduent",
+										"com"
+									],
+									"port": "9443",
+									"path": [
+										"external",
+										"provider"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Local",
+					"item": [
+						{
+							"name": "MessageToCWP_LOCAL",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:a=\"http://www.w3.org/2005/08/addressing\" xmlns:dsig=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:mime=\"http://www.w3.org/2005/05/xmlmime\" xmlns:o=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:u=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" xmlns:xenc=\"http://www.w3.org/2001/04/xmlenc#\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n    <soapenv:Header>\r\n        <a:Action>CWPMessageToCWP</a:Action>\r\n        <a:MessageID>bde72588-7a31-45c9-9c7a-6ddeb518a31d</a:MessageID>\r\n        <o:Security>\r\n            <u:Timestamp>\r\n                <u:Created>2023-02-28T17:37:56Z</u:Created>\r\n                <u:Expires>2023-02-28T17:42:56Z</u:Expires>\r\n            </u:Timestamp>\r\n            <Assertion xmlns=\"urn:oasis:names:tc:SAML:2.0:assertion\" ID=\"_1905625a-d8d2-42dc-b1e3-e521dce49678\" IssueInstant=\"2023-02-28T17:37:56Z\" Version=\"2.0\">\r\n                <Issuer Format=\"urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName\">CN=Sectigo RSA Organization Validation Secure Server CA,O=Sectigo Limited,L=Salford,ST=Greater Manchester,C=GB</Issuer>\r\n                <dsig:Signature>\r\n                    <dsig:SignedInfo>\r\n                        <dsig:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\" />\r\n                        <dsig:SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\" />\r\n                        <dsig:Reference URI=\"\">\r\n                            <dsig:Transforms>\r\n                                <dsig:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\" />\r\n                            </dsig:Transforms>\r\n                            <dsig:DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\" />\r\n                            <dsig:DigestValue>2jmj7l5rSw0yVb/vlWAYkK/YBwk=</dsig:DigestValue>\r\n                        </dsig:Reference>\r\n                    </dsig:SignedInfo>\r\n                    <dsig:SignatureValue>mho92AHAQw7vQkk/MpQSGKmUdEBy4mp5Fiu+p1BYOtOXqBQJ6LXWpvXClyMPCaOFkZDNDHToxKRAofOCJiLhXtbA2YWLsZORVDVR3+1739GID+yvUhB9W7G6Ng1Dwxk2GFXvtNr8MdcciZquhtQR3Qznm6t6pvuPxMwf6fBVP4G9XwGmoIBCKQdYWMyuCVbfRWKfoc3vr7VpikS+ZEUdYuyx4ofGuLrYWfqVO9oCxK0xvmBVMHqp+/uxeC5hpY7KLxnM0Qi+g66CfYlM58KLAirE8aUT5zL04hlDXE/gRwlZ1HO/JTOrRvl6FCmX4BpFfeIqxBKihCvzG76n/dB8dQ==</dsig:SignatureValue>\r\n                    <dsig:KeyInfo>\r\n                        <dsig:X509Data>\r\n                            <dsig:X509SubjectName>CN=p2cwptest.msmeds.org,O=Conduent Business Services\\, LLC,ST=New Jersey,C=US</dsig:X509SubjectName>\r\n                            <dsig:X509Certificate>MIIGuzCCBaOgAwIBAgIMKL8+Xgu3Ism/Mn/1MA0GCSqGSIb3DQEBCwUAMFAxCzAJBgNVBAYTAkJF\r\nMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMSYwJAYDVQQDEx1HbG9iYWxTaWduIFJTQSBPViBT\r\nU0wgQ0EgMjAxODAeFw0yMzAxMDUxOTMyMDVaFw0yNDAxMjgxNjA2MDRaMIGRMQswCQYDVQQGEwJV\r\nUzEUMBIGA1UECBMLTWlzc2lzc2lwcGkxEDAOBgNVBAcTB0phY2tzb24xQjBABgNVBAoTOU1pc3Np\r\nc3NpcHBpIERlcGFydG1lbnQgb2YgSW5mb3JtYXRpb24gVGVjaG5vbG9neSBTZXJ2aWNlczEWMBQG\r\nA1UEAwwNKi5tZGhzLm1zLmdvdjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALcRIg/a\r\ng4lQlQk6uSRcERJ0JW6eESwXMJ/q8mWd2igbIMRbZIxlVJqq8bYMu4hE3UF4ywKygNTuo+EqaRZW\r\n6wKAhTjqAk2GPorFIOrHAWO5buy81oZB6kPsQTYDlP2S5F0mhAHM+VzUX2m9632GS88lPCZ7C4BJ\r\ny+d+aHG50ICVUPvIhpQrMz3DDMnWj7tKliXd1egGGwjHA0NIUf2LJSWr+RI6RuUNFrBDfiFoqaqb\r\n8t1PUInDYnW24sEUj6eh/AVRwT6lcRuWkKSy66pbqpzbDXJMPQM5ufnzqKAyPgZ4qbiHgnH/M2uS\r\n0KRF3EjU5N/ivYzELQitcQcyOlHierECAwEAAaOCA1EwggNNMA4GA1UdDwEB/wQEAwIFoDCBjgYI\r\nKwYBBQUHAQEEgYEwfzBEBggrBgEFBQcwAoY4aHR0cDovL3NlY3VyZS5nbG9iYWxzaWduLmNvbS9j\r\nYWNlcnQvZ3Nyc2FvdnNzbGNhMjAxOC5jcnQwNwYIKwYBBQUHMAGGK2h0dHA6Ly9vY3NwLmdsb2Jh\r\nbHNpZ24uY29tL2dzcnNhb3Zzc2xjYTIwMTgwVgYDVR0gBE8wTTBBBgkrBgEEAaAyARQwNDAyBggr\r\nBgEFBQcCARYmaHR0cHM6Ly93d3cuZ2xvYmFsc2lnbi5jb20vcmVwb3NpdG9yeS8wCAYGZ4EMAQIC\r\nMAkGA1UdEwQCMAAwPwYDVR0fBDgwNjA0oDKgMIYuaHR0cDovL2NybC5nbG9iYWxzaWduLmNvbS9n\r\nc3JzYW92c3NsY2EyMDE4LmNybDAlBgNVHREEHjAcgg0qLm1kaHMubXMuZ292ggttZGhzLm1zLmdv\r\ndjAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHwYDVR0jBBgwFoAU+O9/8s14Z6jeb48k\r\njYjxhwMCs+swHQYDVR0OBBYEFOoZvXTLil51XpESTajeNCLpq6ELMIIBfgYKKwYBBAHWeQIEAgSC\r\nAW4EggFqAWgAdgBvU3asMfAxGdiZAKRRFf93FRwR2QLBACkGjbIImjfZEwAAAYWDa1HLAAAEAwBH\r\nMEUCIQDa45iVEf0qOyNz4r0R0R+ggjizMUnruIgLHCcF1jDzNgIgYfzo6Pd+BoyWC6IqST/BA+QN\r\nEAs60v/emnmklhSkFTMAdgBz2Z6JG0yWeKAgfUed5rLGHNBRXnEZKoxrgBB6wXdytQAAAYWDa1Hv\r\nAAAEAwBHMEUCIEJWCK6luRHEOW4+6gTrvjGDkEBriKuey1Xexpb2E1INAiEAxQw5l9pRoTRe2TNC\r\nnD+61hB32H5zoq7wHm1nyTi5kNoAdgDuzdBk1dsazsVct520zROiModGfLzs3sNRSFlGcR+1mwAA\r\nAYWDa1G/AAAEAwBHMEUCIQCWS3gjhN+Ch5NbRN7LG9Gkj7q4k5pEFIjUxVuxmL26HwIgaQu9MN8I\r\nmekcjhAdBX1ChMbBqbOjHQYs1m8rcjiPJh0wDQYJKoZIhvcNAQELBQADggEBAGh2gwkZ70DtXixW\r\nwwa8vqdG8lVGM3MZQYxRZzKvRLAzzt8MluTwjKRjsDiYb3ztJwQxPsTgkezA6LdcVodvSF7C+uqV\r\nSYp2hl5yg3X4DYQ5wwSktKYBdTJsEKvsOAjownxkn3RPyAU0YzLbT+0YriRbtrtVHHTxMLd7USop\r\n2Kr+a3knmprR23ObSJmZxBxftp3nb7lfSKh+o8iWPV4PgjAEM8C2QHi9dAzJ6dsBvE7e2BoXvC5n\r\nHfqU8eVF+NRFyx7xmMYS6fLQfBDn8tmS2LePOIeUaM7N+tTUIVvFhCP4DIcbMZ4vRqfO7njY02ri\r\n7D4gNSnJw02/5aTlBcK+mVA=</dsig:X509Certificate>\r\n                        </dsig:X509Data>\r\n                    </dsig:KeyInfo>\r\n                </dsig:Signature>\r\n                <AttributeStatement>\r\n                    <Attribute Name=\"urn:oasis:names:tc:xspa:1.0:subject:organization-id\">\r\n                        <AttributeValue>urn:oid:0SSP-001A-001A-0003</AttributeValue>\r\n                    </Attribute>\r\n                </AttributeStatement>\r\n            </Assertion>\r\n        </o:Security>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <ns2:MessageToCWPRequest xmlns:ns2=\"http://hhstp.ms.gov/hhstp/MessageToCWP\" xmlns=\"http://hhstp.ms.gov/hhstp/hhstp-core/1.0\">\r\n            <ns2:TXNHeader>\r\n                <ServiceID>CWPMessageToCWP</ServiceID>\r\n                <ServiceDescription>Message to CWP</ServiceDescription>\r\n                <ServiceTimeStamp>2023-02-28T23:37:54Z</ServiceTimeStamp>\r\n                <Sender>Medicaid</Sender>\r\n                <Receiver>CWP</Receiver>\r\n                <IPAddress>10.221.90.57</IPAddress>\r\n                <TransactionID>bde72588-7a31-45c9-9c7a-6ddeb518a12e</TransactionID>\r\n            </ns2:TXNHeader>\r\n            <ns2:KeyInfoType>\r\n                <KeyType>NewMEDSCaseID</KeyType>\r\n                <KeyIdentifier>602514684</KeyIdentifier>\r\n            </ns2:KeyInfoType>\r\n            <ns2:KeyInfoType>\r\n                <KeyType>CWPAcctID</KeyType>\r\n                <KeyIdentifier>610</KeyIdentifier>\r\n            </ns2:KeyInfoType>\r\n            <ns2:ProgramIdentificationInfo>\r\n                <ProgramIdentificationCode>Medicaid</ProgramIdentificationCode>\r\n                <ProgramCategoryDesc>Medicaid</ProgramCategoryDesc>\r\n            </ns2:ProgramIdentificationInfo>\r\n            <ns2:MessageToCWP>\r\n                <MessageID>1</MessageID>\r\n                <MessageCategoryType>NoticeDelivery</MessageCategoryType>\r\n                <MessageFrom>Medicaid</MessageFrom>\r\n                <MessageTo>Barbara Fields</MessageTo>\r\n                <MessageTimeStamp>2023-02-28T23:37:54Z</MessageTimeStamp>\r\n                <MessageDocumentIndex>!nrtdms:0:!session:WSDEVDMS2:!database:BENE:!document:325851,1:</MessageDocumentIndex>\r\n                <CommPrefDetails>\r\n                    <ElectronicCommunicationsInd>true</ElectronicCommunicationsInd>\r\n                    <CommunicationPreferenceType>Both Email and Text Message</CommunicationPreferenceType>\r\n                    <CommContactNumberInfo>\r\n                        <PhoneNumber>6175059508</PhoneNumber>\r\n                    </CommContactNumberInfo>\r\n                    <EmailID>sathish.jeyam@gmail.com</EmailID>\r\n                </CommPrefDetails>\r\n            </ns2:MessageToCWP>\r\n        </ns2:MessageToCWPRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>"
+								},
+								"url": {
+									"raw": "http://localhost:6000/nodeIntegration/internal/messageToCWP",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6000",
+									"path": [
+										"nodeIntegration",
+										"internal",
+										"messageToCWP"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MS-Provide-emailWebhook-localhost",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Twilio-Email-Event-Webhook-Signature",
+										"value": "",
+										"type": "text"
+									},
+									{
+										"key": "X-Twilio-Email-Event-Webhook-Timestamp",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"bounce_classification\": \"Invalid Address\",\r\n        \"email\": \"sathish.jeyamemail@gmail.com\",\r\n        \"event\": \"bouncee\",\r\n        \"ip\": \"149.72.62.190\",\r\n        \"keyReference\": \"9229f12033298bbfc4218454cb22b9fcea9110b30657472d72ed9a46d40e311aaf325d482d0697a02f05fd86e12ab685e0eb83b7937f6f57bdc75f6b0083a1b11bbd240bcba43fde7d37e1fe9265cc70083992a40acaf33c554f370649e5dd59c8b82f39932a7eb33b8bcfc009efef236c80145e205b6c22b76eb1496f35eeaa993df88cd2c65a40aa78231cac89500348e9392b56e3dd33351b2dc965d066d52495982c9988755f2e3002ba58860f175d17d305c59369d69df67f99354c5e927ec0735017458a423f8e1811881ed7f4afb604526636ded20b769293d24c0cfe\",\r\n        \"messageType\": \"Notification\",\r\n        \"reason\": \"550 5.1.1 The email account that you tried to reach does not exist. Please try double-checking the recipient's email address for typos or unnecessary spaces. For more information, go to https://support.google.com/mail/?p=NoSuchUser z102-20020a0293ef000000b0046e5d3a2171si5217409jah.58 - gsmtp\",\r\n        \"recipientEmail\": \"sathish.jeyamemail@gmail.com\",\r\n        \"sg_event_id\": \"Ym91bmNlLTAtMzk3NzYxMzUtaWxOVGdUOGVRMHlBdGlkM1QwSkdhQS0w\",\r\n        \"sg_message_id\": \"ilNTgT8eQ0yAtid3T0JGaA.recvd-6886bd9456-kswwn-1-65AFE5A6-48.0\",\r\n        \"sg_template_id\": \"d-3548543310ee445b8430e8163eaebdd0\",\r\n        \"sg_template_name\": \"Untitled Version\",\r\n        \"smtp-id\": \"<ilNTgT8eQ0yAtid3T0JGaA@geopod-ismtpd-17>\",\r\n        \"status\": \"5.1.1\",\r\n        \"timestamp\": 1706026406,\r\n        \"tls\": 1,\r\n        \"transactionId\": \"693697f4-cac3-420b-9686-09f188911b68\",\r\n        \"type\": \"bounce\"\r\n    },\r\n    {\r\n        \"email\": \"sathish.jeyamemail@gmail.com\",\r\n        \"event\": \"bounce\",\r\n        \"messageType\": \"Notification\",\r\n         \r\n        \"recipientEmail\": \"sathish.jeyamemail@gmail.com\",\r\n        \"send_at\": 0,\r\n        \"sg_event_id\": \"cHJvY2Vzc2VkLTM5Nzc2MTM1LWlsTlRnVDhlUTB5QXRpZDNUMEpHYUEtMA\",\r\n        \"sg_message_id\": \"ilNTgT8eQ0yAtid3T0JGaA.recvd-6886bd9456-kswwn-1-65AFE5A6-48.0\",\r\n        \"sg_template_id\": \"d-3548543310ee445b8430e8163eaebdd0\",\r\n        \"sg_template_name\": \"Untitled Version\",\r\n        \"smtp-id\": \"<ilNTgT8eQ0yAtid3T0JGaA@geopod-ismtpd-17>\",\r\n        \"timestamp\": 1706026406,\r\n        \"transactionId\": \"693697f4-cac3-420b-9686-09f188911999\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:6000/nodeIntegration/internal/emailWebhook",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "6000",
+									"path": [
+										"nodeIntegration",
+										"internal",
+										"emailWebhook"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PROVIDER-APIS-External to CSSP",
+			"item": [
+				{
+					"name": "MS-Provider-smsWebhook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{externalBaseUrl}}/emailintegration/smsWebhook?keyReference=bca43c95a34e6e26836ba07577a5b756b9c95d3350c19fbd492bf11ae32257b01abc06ba05d7f0bc278609548580043a5367ee09c25fd13946597b67b33fdb18186092db810b027ed01eac539ffd8f2b3fd15c343050183997d0216fb9987f68e4d7c4bf6f22013abc805ad842884e2796c32baaab9669891772a7784cb12caecdb57b2dfed1e8d1423a7d0663acfe1576419ecf0042c28235c7298fcb62c6487b01f041754e4f6f50a4f160d647f29026dc0c6b293151db6a99ac97a8e090228257039b8be36394eef469889e56bf72",
+							"host": [
+								"{{externalBaseUrl}}"
+							],
+							"path": [
+								"emailintegration",
+								"smsWebhook"
+							],
+							"query": [
+								{
+									"key": "keyReference",
+									"value": "bca43c95a34e6e26836ba07577a5b756b9c95d3350c19fbd492bf11ae32257b01abc06ba05d7f0bc278609548580043a5367ee09c25fd13946597b67b33fdb18186092db810b027ed01eac539ffd8f2b3fd15c343050183997d0216fb9987f68e4d7c4bf6f22013abc805ad842884e2796c32baaab9669891772a7784cb12caecdb57b2dfed1e8d1423a7d0663acfe1576419ecf0042c28235c7298fcb62c6487b01f041754e4f6f50a4f160d647f29026dc0c6b293151db6a99ac97a8e090228257039b8be36394eef469889e56bf72"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MS-Provide-emailWebhook",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Twilio-Email-Event-Webhook-Signature",
+								"value": "asdasf",
+								"type": "text"
+							},
+							{
+								"key": "X-Twilio-Email-Event-Webhook-Timestamp",
+								"value": "safa",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"email\": \"sathish.jeyam@gmail.com\",\r\n        \"event\": \"delivered\",\r\n        \"ip\": \"167.89.40.80\",\r\n        \"keyReference\": \"9229f12033298bbfc4218454cb22b9fcea9110b30657472d72ed9a46d40e311aaf325d482d0697a02f05fd86e12ab685e0eb83b7937f6f57bdc75f6b0083a1b11bbd240bcba43fde7d37e1fe9265cc70083992a40acaf33c554f370649e5dd59c8b82f39932a7eb33b8bcfc009efef236c80145e205b6c22b76eb1496f35eeaa993df88cd2c65a40aa78231cac89500348e9392b56e3dd33351b2dc965d066d52495982c9988755f2e3002ba58860f175d17d305c59369d69df67f99354c5e927ec0735017458a423f8e1811881ed7f4afb604526636ded20b769293d24c0cfe\",\r\n        \"messageType\": \"Notification\",\r\n        \"recipientEmail\": \"sathish.jeyam@gmail.com\",\r\n        \"response\": \"250 2.0.0 OK  1689044530 qx16-20020a170906fcd000b00993a37b5e5csi1097195ejb.394 - gsmtp\",\r\n        \"sg_event_id\": \"ZGVsaXZlcmVkLTAtMjc2NzgwOTAtTXladVkzQ3JRbHloYnhuRlR1eXA1QS0w\",\r\n        \"sg_message_id\": \"MyZuY3CrQlyhbxnFTuyp5A.filterdrecv-84b96456cb-6l8hp-1-64ACC62F-12.0\",\r\n        \"sg_template_id\": \"d-376e37c2ae7a4c3a8574c96441106169\",\r\n        \"sg_template_name\": \"Untitled Version\",\r\n        \"smtp-id\": \"<MyZuY3CrQlyhbxnFTuyp5A@geopod-ismtpd-31>\",\r\n        \"timestamp\": 1689044530,\r\n        \"tls\": 1,\r\n        \"transactionId\": \"bde72588-7a31-45c9-9c7a-6ddeb518a12e\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.ms.cssp.portal.conduentsecure.com/emailintegration/emailWebhook",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ms",
+								"cssp",
+								"portal",
+								"conduentsecure",
+								"com"
+							],
+							"path": [
+								"emailintegration",
+								"emailWebhook"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PROVIDER-APIS-Maintenance",
+			"item": [
+				{
+					"name": "FetchPayload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let transactionIdStr = JSON.parse(pm.request.body.raw).transactionRequest.transactionId;\r",
+									"pm.globals.set(\"prodre_transaction_id\", transactionIdStr);\r",
+									"console.log(JSON.parse(pm.request.body.raw).transactionRequest.transactionId);\r",
+									"let responseBodysStr = pm.response.json();\r",
+									"console.log(responseBodysStr.body.response);\r",
+									"pm.globals.set('prodrecon_body',responseBodysStr.body.response)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YXBpdXNlcjpDMG5kdTNudDIwMjI="
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "visid_incap_2857209=Efe1V82PQQqY4mFYsGfgmKjBpmQAAAAAQUIPAAAAAADW3ms2StTbMf2qLL1d9VEB; visid_incap_2921799=BIl8CcgoRpO4Mj4hQGZoLbgJyGQAAAAAQUIPAAAAAAAgGkwcjSH88VWNNDtLMIk0; incap_ses_261_2922677=hpPSaTn5YhAPtlxMykKfA5+o+GQAAAAAorikRpxfw4sET/kL7/v/QA==; incap_ses_6523_2922677=2gP7b2OwRBF+vC6nYlqGWreA+mQAAAAAm3LpIbM1q8pMf1cpudGnCw==; visid_incap_2922677=JKv2qI7+TcSfQB/wF++IuoKun2QAAAAAQUIPAAAAAABvELz9HsiUgisgbQuy87rl"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"consumerAccountId\": null,\r\n    \"draftJsonRequest\": {\r\n        \"trackingId\": null\r\n    },\r\n    \"requestType\": \"XML\",\r\n    \"transactionRequest\": {\r\n        \"transactionId\": \"231004-PROD-CSSP-D01-5deca6ea-1e71-4ebc-a1ca-6a54d9a2266d\"\r\n    },\r\n    \"userId\": null\r\n}"
+						},
+						"url": {
+							"raw": "{{externalBaseUrl2}}/external/payload",
+							"host": [
+								"{{externalBaseUrl2}}"
+							],
+							"path": [
+								"external",
+								"payload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reprocess",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "repro_txn_id",
+								"value": "{{prodre_transaction_id}}"
+							},
+							{
+								"key": "new_txn_id",
+								"value": "{{prodre_transaction_id}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YXBpdXNlcjpDMG5kdTNudDIwMjI="
+							},
+							{
+								"key": "Cookie",
+								"value": "visid_incap_2951784=GXXpZ/NMTOWcjWugOOUqSwJWrGQAAAAAQUIPAAAAAACZROQFBKN4ZbP9hIR8t2fN; incap_ses_261_2951802=HSMAZh1wowz+/wVNykKfA5tE+WQAAAAAsGZkRSYk5FA66R/3wephOQ==; incap_ses_6523_2951802=gIzTFe08SBCb59mtYlqGWvImAmUAAAAAbcWyHhyXo9fHU1RMDsWFEA==; visid_incap_2951802=c51B0/HESc6BhUmMp51ITXtWrGQAAAAAQUIPAAAAAABnXqLvuYuACPmDEJbpi5wV",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{prodrecon_body}}"
+						},
+						"url": {
+							"raw": "{{externalBaseUrl2}}/external/reprocess",
+							"host": [
+								"{{externalBaseUrl2}}"
+							],
+							"path": [
+								"external",
+								"reprocess"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UAT-APIS-Maintenance",
+			"item": [
+				{
+					"name": "FetchPayload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const transactionIdlist = pm.collectionVariables.get(\"transactionIdlist\");\r",
+									"var i=0\r",
+									"/*while(i<transactionIdlist.length){\r",
+									" postman.setNextRequest(\"FetchPayload\");\r",
+									"}*/\r",
+									"\r",
+									"if (transactionIdlist && transactionIdlist.length > 0){\r",
+									"    postman.setNextRequest(\"FetchPayload\");\r",
+									"   console.log( pm.response.status)\r",
+									"} else {\r",
+									"    postman.setNextRequest(null);\r",
+									"}\r",
+									"console.log( pm.response.status)\r",
+									"//pm.test(\"Status code is 200\", function () {\r",
+									"    //console.log( pm.response.to.have.status(200))\r",
+									"  //  pm.response.to.have.status(200);\r",
+									"//});\r",
+									"//let transactionIdStr = JSON.parse(pm.request.body.raw).transactionRequest.transactionId;\r",
+									"//pm.globals.set(\"re_transaction_id\", transactionIdStr);\r",
+									"//console.log(JSON.parse(pm.request.body.raw).transactionRequest.transactionId);\r",
+									"//let responseBodysStr = pm.response.json();\r",
+									"//console.log(responseBodysStr.body.response);\r",
+									"//pm.globals.set('recon_body',responseBodysStr.body.response)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"let transactionIdlist = pm.collectionVariables.get(\"transactionId\");\r",
+									"\r",
+									"if(!transactionIdlist || transactionIdlist.length == 0) {\r",
+									"    transactionIdlist = [\"231006-UAT-CSSP-D01-96a2fc4d-47e7-4fa4-bb74-8b1571f59205\",\"231005-UAT-CSSP-D01-40004807-104a-41cc-8ce7-772401b719ed\",\"231005-UAT-CSSP-D01-b54b3bbe-7092-4734-8146-07c0176d137f\",\"231005-UAT-CSSP-D01-f1e29670-9a7e-48d9-b9ae-993a550293e8\"];\r",
+									"}\r",
+									"\r",
+									"let currentTransactionId = transactionIdlist.shift();\r",
+									"console.log(currentTransactionId)\r",
+									"pm.collectionVariables.set(\"currentTransactionId\", currentTransactionId);\r",
+									"pm.collectionVariables.set(\"transactionIdlist\", transactionIdlist);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YXBpdXNlcjpDMG5kdTNudDIwMjI="
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "visid_incap_2857209=Efe1V82PQQqY4mFYsGfgmKjBpmQAAAAAQUIPAAAAAADW3ms2StTbMf2qLL1d9VEB; visid_incap_2921799=BIl8CcgoRpO4Mj4hQGZoLbgJyGQAAAAAQUIPAAAAAAAgGkwcjSH88VWNNDtLMIk0; incap_ses_261_2922677=hpPSaTn5YhAPtlxMykKfA5+o+GQAAAAAorikRpxfw4sET/kL7/v/QA==; incap_ses_6523_2922677=2gP7b2OwRBF+vC6nYlqGWreA+mQAAAAAm3LpIbM1q8pMf1cpudGnCw==; visid_incap_2922677=JKv2qI7+TcSfQB/wF++IuoKun2QAAAAAQUIPAAAAAABvELz9HsiUgisgbQuy87rl",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"consumerAccountId\": null,\r\n    \"draftJsonRequest\": {\r\n        \"trackingId\": null\r\n    },\r\n    \"requestType\": \"XML\",\r\n    \"transactionRequest\": {\r\n        \"transactionId\": \"{{currentTransactionId}}\"\r\n    },\r\n    \"userId\": null\r\n}"
+						},
+						"url": {
+							"raw": "https://api.uat.cssp.portal.conduent.com/external/payload",
+							"protocol": "https",
+							"host": [
+								"api",
+								"uat",
+								"cssp",
+								"portal",
+								"conduent",
+								"com"
+							],
+							"path": [
+								"external",
+								"payload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reprocess",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "repro_txn_id",
+								"value": "230930-PROD-CSSP-M01-1727fa29-8d28-40eb-8348-d220de5edd65"
+							},
+							{
+								"key": "new_txn_id",
+								"value": "230930-PROD-CSSP-M01-REO1-1727fa29-8d28-40eb-8348-d220de5edd65"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YXBpdXNlcjpDMG5kdTNudDIwMjI="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.uat.cssp.portal.conduent.com/external/reprocess",
+							"protocol": "https",
+							"host": [
+								"api",
+								"uat",
+								"cssp",
+								"portal",
+								"conduent",
+								"com"
+							],
+							"path": [
+								"external",
+								"reprocess"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MS-Provide-emailWebhook-localhost",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Twilio-Email-Event-Webhook-Signature",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "X-Twilio-Email-Event-Webhook-Timestamp",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"email\": \"sathish.jeyam@gmail.com\",\r\n        \"event\": \"delivered\",\r\n        \"ip\": \"167.89.40.80\",\r\n        \"keyReference\": \"9229f12033298bbfc4218454cb22b9fcea9110b30657472d72ed9a46d40e311aaf325d482d0697a02f05fd86e12ab685e0eb83b7937f6f57bdc75f6b0083a1b11bbd240bcba43fde7d37e1fe9265cc70083992a40acaf33c554f370649e5dd59c8b82f39932a7eb33b8bcfc009efef236c80145e205b6c22b76eb1496f35eeaa993df88cd2c65a40aa78231cac89500348e9392b56e3dd33351b2dc965d066d52495982c9988755f2e3002ba58860f175d17d305c59369d69df67f99354c5e927ec0735017458a423f8e1811881ed7f4afb604526636ded20b769293d24c0cfe\",\r\n        \"messageType\": \"Notification\",\r\n        \"recipientEmail\": \"sathish.jeyam@gmail.com\",\r\n        \"response\": \"250 2.0.0 OK  1689044530 qx16-20020a170906fcd000b00993a37b5e5csi1097195ejb.394 - gsmtp\",\r\n        \"sg_event_id\": \"ZGVsaXZlcmVkLTAtMjc2NzgwOTAtTXladVkzQ3JRbHloYnhuRlR1eXA1QS0w\",\r\n        \"sg_message_id\": \"MyZuY3CrQlyhbxnFTuyp5A.filterdrecv-84b96456cb-6l8hp-1-64ACC62F-12.0\",\r\n        \"sg_template_id\": \"d-376e37c2ae7a4c3a8574c96441106169\",\r\n        \"sg_template_name\": \"Untitled Version\",\r\n        \"smtp-id\": \"<MyZuY3CrQlyhbxnFTuyp5A@geopod-ismtpd-31>\",\r\n        \"timestamp\": 1689044530,\r\n        \"tls\": 1,\r\n        \"transactionId\": \"bde72588-7a31-45c9-9c7a-6ddeb518a12e\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{externalBaseUrl}}/emailintegration/emailWebhook",
+					"host": [
+						"{{externalBaseUrl}}"
+					],
+					"path": [
+						"emailintegration",
+						"emailWebhook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MS-Provide-emailWebhook-sit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Twilio-Email-Event-Webhook-Signature",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "X-Twilio-Email-Event-Webhook-Timestamp",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"email\": \"sathish.jeyamemail@gmail.com\",\r\n        \"event\": \"bounce\",\r\n        \"ip\": \"167.89.40.80\",\r\n        \"keyReference\": \"9229f12033298bbfc4218454cb22b9fcea9110b30657472d72ed9a46d40e311aaf325d482d0697a02f05fd86e12ab685e0eb83b7937f6f57bdc75f6b0083a1b11bbd240bcba43fde7d37e1fe9265cc70083992a40acaf33c554f370649e5dd59c8b82f39932a7eb33b8bcfc009efef236c80145e205b6c22b76eb1496f35eeaa993df88cd2c65a40aa78231cac89500348e9392b56e3dd33351b2dc965d066d52495982c9988755f2e3002ba58860f175d17d305c59369d69df67f99354c5e927ec0735017458a423f8e1811881ed7f4afb604526636ded20b769293d24c0cfe\",\r\n        \"messageType\": \"Notification\",\r\n        \"recipientEmail\": \"sathish.jeyamemail@gmail.com\",\r\n        \"response\": \"250 2.0.0 OK  1689044530 qx16-20020a170906fcd000b00993a37b5e5csi1097195ejb.394 - gsmtp\",\r\n        \"sg_event_id\": \"ZGVsaXZlcmVkLTAtMjc2NzgwOTAtTXladVkzQ3JRbHloYnhuRlR1eXA1QS0w\",\r\n        \"sg_message_id\": \"MyZuY3CrQlyhbxnFTuyp5A.filterdrecv-84b96456cb-6l8hp-1-64ACC62F-12.0\",\r\n        \"sg_template_id\": \"d-376e37c2ae7a4c3a8574c96441106169\",\r\n        \"sg_template_name\": \"Untitled Version\",\r\n        \"smtp-id\": \"<MyZuY3CrQlyhbxnFTuyp5A@geopod-ismtpd-31>\",\r\n        \"timestamp\": 1689044530,\r\n        \"tls\": 1,\r\n        \"transactionId\": \"bde72588-1111-45c9-9c7a-6ddeb518a12e\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6000/nodeIntegration/internal/emailWebhook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6000",
+					"path": [
+						"nodeIntegration",
+						"internal",
+						"emailWebhook"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "currentTransactionId",
+			"value": ""
+		},
+		{
+			"key": "transactionIdlist",
+			"value": ""
+		}
+	]
+}
